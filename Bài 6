@@ -1,0 +1,52 @@
+public class NhanVien{
+  private String tenNhanVien;
+  private final double luongCoBan = 20000;
+  private double heSoLuong;
+  public final double LUONG_MAX = 20000;
+  public NhanVien(String tenNhanVien, double heSoLuong){
+      this.tenNhanVien = tenNhanVien;
+      this.heSoLuong = heSoLuong;
+  }
+  public boolean tangHeSoLuong(double money){
+      return true;
+  }
+  public String getTenNhanVien(){
+      return tenNhanVien;
+  }
+  public double getLuongCoBan(){
+      return luongCoBan;
+  }
+  public double getHeSoLuong(){
+      return heSoLuong;
+  }
+  public double tinhLuong(){
+      return 0;
+  }
+  public void inTT(){
+      
+  }
+}
+public interface QuanLy{
+    public double tinhHoaHong();
+}
+public class GiamDoc extends NhanVien implements QuanLy{
+    private double phuCap;
+    public final double loiNhuanCongTy = 20000;
+    public GiamDoc(String tenNhanVien, double luongCoBan, double phuCap){
+        super(tenNhanVien, luongCoBan);
+        this.phuCap=phuCap;
+    }
+    @Override
+    public double tinhHoaHong(){
+        return 1.00*5/100*loiNhuanCongTy;
+    }
+    
+    @Override 
+    public double tinhLuong(){
+        return this.getLuongCoBan()*this.getHeSoLuong()+this.phuCap+tinhHoaHong();
+    } 
+    public static void main(String[] args){
+        GiamDoc gd = new GiamDoc("Tran Duc Manh", 2, 5000);
+       System.out.print( gd.tinhLuong());
+    }
+}
