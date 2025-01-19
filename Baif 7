@@ -1,0 +1,56 @@
+Find the error
+public abstract class Shape{
+  protected String color;
+  protected boolean filled;
+  public Shape(){
+      
+  }
+  public Shape(String color, boolean filled){
+      this.color = color;
+      this.filled = filled;
+  }
+  public String getColor(){
+      return this.color;
+  }
+  public void setColor(String color){
+      this.color = color;
+  }
+  public boolean isFilled(){
+      return filled;
+  }
+  public void setFilled(boolean filled){
+      this.filled = filled;
+  }
+  public abstract double getArea();
+  public abstract double getPerimeter();
+  public String toString(){
+      return "Manh";
+  }
+}
+public abstract class Circle extends Shape{
+    protected double radius;
+    public Circle(){
+        
+    }
+    public Circle(double radius){
+        this.radius = radius;
+    }
+    public Circle(double radius, String color, boolean filled){
+        super(color, filled);
+    }
+    public double getRadius(){
+        return this.radius;
+    }
+    public void setRadius(double radius){
+        this.radius = radius;
+    }
+    @Override
+    public double getArea(){
+        return 3.14*this.radius*this.radius;
+    }
+
+    public static void main(String[] args){
+        Circle cir = new Circle(3);
+        System.out.print(cir.getArea());
+    }
+}
